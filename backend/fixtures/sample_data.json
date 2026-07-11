@@ -1,0 +1,83 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$sample$samplehashnotforlogin",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "demo",
+      "first_name": "Demo",
+      "last_name": "User",
+      "email": "demo@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-01T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "transaction_type": "income",
+      "category": "Salary",
+      "amount": "75000.00",
+      "description": "Monthly salary",
+      "date": "2026-07-01",
+      "created_at": "2026-07-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "transaction_type": "expense",
+      "category": "Food",
+      "amount": "8500.00",
+      "description": "Groceries and eating out",
+      "date": "2026-07-04",
+      "created_at": "2026-07-04T09:00:00Z"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "transaction_type": "expense",
+      "category": "Travel",
+      "amount": "6200.00",
+      "description": "Fuel and cab rides",
+      "date": "2026-07-08",
+      "created_at": "2026-07-08T09:00:00Z"
+    }
+  },
+  {
+    "model": "budgets.budget",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "category": "Food",
+      "monthly_limit": "10000.00",
+      "month": 7,
+      "year": 2026,
+      "created_at": "2026-07-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "budgets.budget",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "category": "Travel",
+      "monthly_limit": "5000.00",
+      "month": 7,
+      "year": 2026,
+      "created_at": "2026-07-01T09:00:00Z"
+    }
+  }
+]
