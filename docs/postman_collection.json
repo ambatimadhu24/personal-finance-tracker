@@ -1,0 +1,100 @@
+{
+  "info": {
+    "name": "Personal Finance Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api"
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/register/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"rahul\",\n  \"email\": \"rahul@example.com\",\n  \"password\": \"StrongPass123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/login/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"rahul\",\n  \"password\": \"StrongPass123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Transaction",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/transactions/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"transaction_type\": \"expense\",\n  \"category\": \"Food\",\n  \"amount\": \"8500.00\",\n  \"description\": \"Groceries and eating out\",\n  \"date\": \"2026-07-04\"\n}"
+        }
+      }
+    },
+    {
+      "name": "List Transactions",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/transactions/"
+      }
+    },
+    {
+      "name": "Create Budget",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/budgets/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"category\": \"Food\",\n  \"monthly_limit\": \"10000.00\",\n  \"month\": 7,\n  \"year\": 2026\n}"
+        }
+      }
+    },
+    {
+      "name": "Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/reports/dashboard/"
+      }
+    },
+    {
+      "name": "Monthly Report",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/reports/monthly/?month=7&year=2026"
+      }
+    }
+  ]
+}
